@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'naver-site-verification': '21a2160d55fca4794c013ba5b614548773249421',
     },
   },
-
+};
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f5f4fb' },
