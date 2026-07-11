@@ -26,8 +26,10 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: '/', types: { 'application/rss+xml': '/rss.xml' } },
 };
-
-export const viewport: Viewport = {
+verification: {
+    google: 'HEpoVyBocBHh1XPjRszPv98y5FDmiL-aI_NNbEX-kQY',
+  },
+};export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f5f4fb' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0e27' },
