@@ -27,8 +27,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/', types: { 'application/rss+xml': '/rss.xml' } },
   verification: {
     google: 'HEpoVyBocBHh1XPjRszPv98y5FDmiL-aI_NNbEX-kQY',
+    other: {
+      'naver-site-verification': '21a2160d55fca4794c013ba5b614548773249421',
+    },
   },
-};
 
 export const viewport: Viewport = {
   themeColor: [
