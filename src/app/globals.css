@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f4fb;
+  --bg-elev: #ffffff;
+  --bg-soft: #eeecfa;
+  --text: #1a1b3a;
+  --text-muted: #55507a;
+  --border: #e0ddf2;
+  --accent: #7c5cff;
+  --accent-ink: #5b3fd6;
+  --moon: #c9a84a;
+  --star: #7c5cff;
+  --card-shadow: 0 8px 30px -14px rgba(40, 30, 90, 0.28);
+}
+
+.dark {
+  --bg: #0a0e27;
+  --bg-elev: #141935;
+  --bg-soft: #1c2247;
+  --text: #eceafd;
+  --text-muted: #9a96c4;
+  --border: #262b52;
+  --accent: #b8a5ff;
+  --accent-ink: #c4bff0;
+  --moon: #ebcb6b;
+  --star: #f4e4b8;
+  --card-shadow: 0 8px 34px -12px rgba(4, 6, 20, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* 포커스 접근성 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 스킵 링크 */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* 별밭 시그니처 배경 */
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.starfield .star {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--star);
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield .star {
+    animation: none;
+    opacity: 0.45;
+  }
+}
+
+/* 달빛 그라디언트 텍스트 */
+.text-gradient-moon {
+  background-image: linear-gradient(180deg, var(--moon) 0%, #e0b84f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 카드 */
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* ===== 마크다운 본문 (prose) ===== */
+.prose-dream {
+  color: var(--text);
+  line-height: 1.85;
+  font-size: 1.02rem;
+}
+.prose-dream > * + * {
+  margin-top: 1.15rem;
+}
+.prose-dream h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 2.4rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 5rem;
+}
+.prose-dream h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  color: var(--text);
+  scroll-margin-top: 5rem;
+}
+.prose-dream p {
+  color: var(--text);
+}
+.prose-dream a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.prose-dream a:hover {
+  color: var(--accent);
+}
+.prose-dream ul,
+.prose-dream ol {
+  padding-left: 1.4rem;
+}
+.prose-dream ul {
+  list-style: disc;
+}
+.prose-dream ol {
+  list-style: decimal;
+}
+.prose-dream li {
+  margin-top: 0.4rem;
+}
+.prose-dream li::marker {
+  color: var(--accent);
+}
+.prose-dream strong {
+  color: var(--text);
+  font-weight: 700;
+}
+.prose-dream blockquote {
+  border-left: 3px solid var(--moon);
+  background: var(--bg-soft);
+  padding: 0.8rem 1.1rem;
+  border-radius: 0 0.6rem 0.6rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.prose-dream blockquote p {
+  color: var(--text-muted);
+  margin: 0;
+}
+.prose-dream table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-dream th,
+.prose-dream td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.prose-dream th {
+  background: var(--bg-soft);
+  font-weight: 700;
+}
+.prose-dream code {
+  background: var(--bg-soft);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.9em;
+}
+.prose-dream hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
